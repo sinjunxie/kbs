@@ -12,6 +12,20 @@
             background-color: #1a1a2e; /* 深邃的宇宙蓝黑色 */
             color: #e0e0e0; /* 浅灰色文字 */
             overflow-x: hidden; /* 防止横向滚动条 */
+            font-size: 16px; /* 基础字体大小 */
+        }
+
+        /* 响应式基础设置 */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
         }
 
         .screen {
@@ -26,7 +40,13 @@
             position: relative; /* 为绝对定位的元素提供参考 */
         }
 
-        /* --- Screen 1: Hero --- */
+        @media (max-width: 768px) {
+            .screen {
+                padding: 20px 10px;
+            }
+        }
+
+        /* Screen 1: Hero --- */
         #screen1 {
             background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.95)),
                         url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80') no-repeat center center/cover; /* 示例星空背景 */
@@ -39,11 +59,31 @@
             text-shadow: 0 0 15px rgba(0, 191, 255, 0.7); /* 亮蓝色辉光 */
         }
 
+        @media (max-width: 768px) {
+            #screen1 h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #screen1 h1 {
+                font-size: 2em;
+            }
+        }
+
         #screen1 p {
             font-size: 1.4em;
             max-width: 700px;
             margin-bottom: 1.5em;
             color: #c0c0c0;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            #screen1 p {
+                font-size: 1.2em;
+                max-width: 100%;
+            }
         }
 
         .cta-button {
@@ -60,9 +100,18 @@
             box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 150, 255, 0.6);
+        @media (max-width: 768px) {
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
         }
 
         .hero-brain-placeholder { /* 模拟大脑/核心的占位符 */
@@ -168,6 +217,7 @@
             justify-content: center;
             gap: 30px;
             max-width: 900px;
+            padding: 0 15px;
         }
         .source-item {
             width: 120px;
@@ -200,6 +250,19 @@
             color: #c0c0c0;
         }
 
+        @media (max-width: 768px) {
+            .sources-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .source-item {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
         /* --- Screen 4: AI Processing --- */
         #screen4 {
             background-color: #10101a;
@@ -220,14 +283,17 @@
             justify-content: space-around;
             width: 100%;
             max-width: 1000px;
-            flex-wrap: wrap; /* 允许换行 */
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 15px;
         }
         .processing-step {
             background-color: rgba(0, 191, 255, 0.05);
             border: 1px solid rgba(0, 191, 255, 0.2);
             border-radius: 10px;
             padding: 20px;
-            width: 200px; /* 调整宽度以适应内容 */
+            width: calc(20% - 20px);
+            min-width: 200px;
             margin: 10px;
             text-align: center;
             opacity: 0; /* 初始不可见，用于动画 */
@@ -278,9 +344,10 @@
             margin-bottom: 30px;
         }
         .nebula-placeholder { /* 模拟星云图的占位符 */
-            width: 80%;
+            width: 90%;
             max-width: 600px;
-            height: 400px; /* 调整高度 */
+            height: auto;
+            min-height: 300px;
             background-color: rgba(0, 50, 100, 0.2);
             border: 2px dashed #00c6ff;
             border-radius: 20px;
@@ -291,6 +358,7 @@
             color: #00c6ff;
             position: relative;
             overflow: hidden; /* 内部粒子效果 */
+            padding: 20px;
         }
         /* 简单的粒子效果模拟 */
         .particle {
@@ -324,6 +392,12 @@
             padding: 10px 20px;
         }
 
+        @media (max-width: 768px) {
+            .nebula-placeholder {
+                min-height: 250px;
+            }
+        }
+
         /* --- Screen 6: Continuous Evolution --- */
         #screen6 {
             background-color: #161625; /* 与Screen 2背景色一致，表示对话回归 */
@@ -347,6 +421,7 @@
             gap: 30px;
             flex-wrap: wrap;
             margin-bottom: 40px;
+            padding: 0 15px;
         }
         .future-point {
             background-color: rgba(0, 191, 255, 0.1);
@@ -365,6 +440,11 @@
             color: #b0b0b0;
         }
 
+        @media (max-width: 768px) {
+            .future-point {
+                min-width: 100%;
+            }
+        }
 
         /* --- General Helper --- */
         .scroll-indicator {
@@ -386,6 +466,49 @@
             }
             60% {
                 transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Screen 8: Contact Section */
+        #screen8 {
+            background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95));
+        }
+        #screen8 h2 {
+            font-size: 2.5em;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+            margin-bottom: 50px;
+        }
+        .contact-card {
+            width: 300px;
+        }
+        @media (max-width: 768px) {
+            .contact-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* 图片响应式调整 */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 通用响应式文本调整 */
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2em;
+            }
+        }
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.8em;
             }
         }
     </style>
