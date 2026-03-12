@@ -3,1152 +3,1369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>企业级AI知识平台-重塑知识管理新范式</title>
+
+    <!-- SEO Meta Tags -->
+    <title>OpenHug - 更安全、更专业的桌面办公助手 | 永久免费AI工具</title>
+    <meta name="description" content="OpenHug是一款永久免费的桌面办公助手，支持多IM直联、SKILL智能生态、高效应用和安全架构。一键开启智能办公时代！">
+    <meta name="keywords" content="AI办公助手, 桌面智能工具, 免费AI软件, 本地AI服务, 安全AI架构">
+    <meta name="author" content="OpenHug">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="OpenHug - 更安全、更专业的桌面办公助手">
+    <meta property="og:description" content="一键开启智能时代！永久免费，本地服务，自定义大模型">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤗</text></svg>">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* --- 前面 Screen 1, 2, 3 的CSS样式保持不变 --- */
+        /* CSS Variables */
+        :root {
+            --primary-color: #4F46E5;
+            --primary-dark: #4338CA;
+            --primary-light: #818CF8;
+            --secondary-color: #10B981;
+            --accent-color: #F59E0B;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --text-muted: #9CA3AF;
+            --bg-light: #F9FAFB;
+            --bg-white: #FFFFFF;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            --gradient-hero: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4F46E5 100%);
+            --gradient-card: linear-gradient(145deg, #FFFFFF 0%, #F3F4F6 100%);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            background-color: #1a1a2e; /* 深邃的宇宙蓝黑色 */
-            color: #e0e0e0; /* 浅灰色文字 */
-            overflow-x: hidden; /* 防止横向滚动条 */
-            font-size: 16px; /* 基础字体大小 */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
         }
 
-        /* 响应式基础设置 */
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        @media (max-width: 480px) {
-            body {
-                font-size: 12px;
-            }
-        }
-
-        .screen {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            text-align: center;
-            box-sizing: border-box;
-            position: relative; /* 为绝对定位的元素提供参考 */
-        }
-
-        @media (max-width: 768px) {
-            .screen {
-                padding: 20px 10px;
-            }
-        }
-
-        /* Screen 1: Hero --- */
-        #screen1 {
-            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.95)),
-                        url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80') no-repeat center center/cover; /* 示例星空背景 */
-        }
-
-        #screen1 h1 {
-            font-size: 3.5em;
-            margin-bottom: 0.2em;
-            color: #ffffff;
-            text-shadow: 0 0 15px rgba(0, 191, 255, 0.7); /* 亮蓝色辉光 */
-        }
-
-        @media (max-width: 768px) {
-            #screen1 h1 {
-                font-size: 2.5em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #screen1 h1 {
-                font-size: 2em;
-            }
-        }
-
-        #screen1 p {
-            font-size: 1.4em;
-            max-width: 700px;
-            margin-bottom: 1.5em;
-            color: #c0c0c0;
-            padding: 0 15px;
-        }
-
-        @media (max-width: 768px) {
-            #screen1 p {
-                font-size: 1.2em;
-                max-width: 100%;
-            }
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            font-size: 1.2em;
-            color: #ffffff;
-            background: linear-gradient(135deg, #007bff, #00c6ff); /* 蓝色渐变 */
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1.1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cta-button {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-        }
-
-        .hero-brain-placeholder { /* 模拟大脑/核心的占位符 */
-            width: 100px;
-            height: 100px;
-            background-color: rgba(0, 191, 255, 0.3);
-            border-radius: 50%;
-            margin-top: 30px;
-            animation: pulse 2s infinite ease-in-out;
-            border: 2px solid rgba(0, 191, 255, 0.7);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 191, 255, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 191, 255, 0); }
-        }
-
-        /* --- Screen 2: AI Dialogue --- */
-        #screen2 {
-            background-color: #161625; /* 略微不同的深色 */
-        }
-
-        .dialogue-container {
-            background-color: rgba(40, 40, 60, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .dialogue-container h2 { color: #fff; margin-bottom: 20px; }
-
-        .dialogue-turn {
-            display: flex;
-            margin-bottom: 20px;
-        }
-
-        .dialogue-turn.user .bubble {
-            background-color: #007bff;
-            color: white;
-            margin-left: auto;
-            border-radius: 15px 15px 0 15px;
-        }
-
-        .dialogue-turn.ai .bubble {
-            background-color: #333a5f; /* AI的颜色 */
-            color: #e0e0e0;
-            margin-right: auto;
-            border-radius: 15px 15px 15px 0;
-        }
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #555; /* 占位颜色 */
-            margin: 0 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        .user .avatar { background-color: #0056b3; color: white; }
-        .ai .avatar { background-color: #222744; color: #00c6ff; }
-
-
-        .bubble {
-            padding: 15px 20px;
-            max-width: 70%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            text-align: left;
-        }
-
-        .ai-options button {
-            background-color: #00c6ff;
-            color: #1a1a2e;
-            border: none;
-            padding: 8px 15px;
-            margin: 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-        .ai-options button:hover {
-            background-color: #009bcc;
-        }
-
-
-        /* --- Screen 3: Knowledge Sources --- */
-        #screen3 {
-            background-color: #12121f;
-        }
-        #screen3 h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #ffffff;
-        }
-        .sources-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 900px;
-            padding: 0 15px;
-        }
-        .source-item {
-            width: 120px;
-            height: 120px;
-            background-color: rgba(0, 191, 255, 0.1);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: default; /* 只是展示 */
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        .source-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 5px 20px rgba(0, 191, 255, 0.4);
-        }
-        .source-item img { /* 假设你有图标图片 */
-            width: 40px;
-            height: 40px;
-            margin-bottom: 10px;
-            /* filter: invert(80%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%); */ /* 调整为科技蓝色调 */
-        }
-        .source-item p {
-            font-size: 0.9em;
-            margin: 0;
-            color: #c0c0c0;
-        }
-
-        @media (max-width: 768px) {
-            .sources-grid {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .source-item {
-                width: 80px;
-                height: 80px;
-            }
-        }
-
-        /* --- Screen 4: AI Processing --- */
-        #screen4 {
-            background-color: #10101a;
-        }
-        #screen4 h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        #screen4 .processing-subtitle {
-            font-size: 1.2em;
-            color: #a0a0a0;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        .processing-steps {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            max-width: 1000px;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 0 15px;
-        }
-        .processing-step {
-            background-color: rgba(0, 191, 255, 0.05);
-            border: 1px solid rgba(0, 191, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            width: calc(20% - 20px);
-            min-width: 200px;
-            margin: 10px;
-            text-align: center;
-            opacity: 0; /* 初始不可见，用于动画 */
-            animation: fadeInStep 0.5s ease forwards; /* 应用动画 */
-        }
-        /* 为每个步骤设置不同的延迟 */
-        .processing-step:nth-child(1) { animation-delay: 0.2s; }
-        .processing-step:nth-child(2) { animation-delay: 0.4s; }
-        .processing-step:nth-child(3) { animation-delay: 0.6s; }
-        .processing-step:nth-child(4) { animation-delay: 0.8s; }
-        .processing-step:nth-child(5) { animation-delay: 1.0s; }
-
-
-        .processing-step img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
-            /* filter: invert(80%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%); */
-        }
-        .processing-step h3 {
-            font-size: 1.2em;
-            color: #00c6ff;
-            margin-bottom: 10px;
-        }
-        .processing-step p {
-            font-size: 0.9em;
-            color: #b0b0b0;
-        }
-
-        @keyframes fadeInStep {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Screen 5: Knowledge Nebula --- */
-        #screen5 {
-            background-color: #0d0d1a;
-        }
-        #screen5 h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        #screen5 .nebula-subtitle {
-            font-size: 1.2em;
-            color: #a0a0a0;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-        .nebula-placeholder { /* 模拟星云图的占位符 */
-            width: 90%;
-            max-width: 600px;
-            height: auto;
-            min-height: 300px;
-            background-color: rgba(0, 50, 100, 0.2);
-            border: 2px dashed #00c6ff;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            color: #00c6ff;
-            position: relative;
-            overflow: hidden; /* 内部粒子效果 */
-            padding: 20px;
-        }
-        /* 简单的粒子效果模拟 */
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background-color: #00c6ff;
-            border-radius: 50%;
-            opacity: 0;
-            animation: floatParticle 5s infinite ease-in-out;
-        }
-        @keyframes floatParticle {
-            0% { opacity: 0; transform: translateY(0) scale(0.5); }
-            50% { opacity: 0.8; transform: translateY(-20px) scale(1); }
-            100% { opacity: 0; transform: translateY(-40px) scale(0.5); }
-        }
-        .nebula-interaction {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-        }
-        .nebula-interaction input[type="text"] {
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 1px solid #007bff;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            min-width: 250px;
-        }
-        .nebula-interaction button {
-            padding: 10px 20px;
-        }
-
-        @media (max-width: 768px) {
-            .nebula-placeholder {
-                min-height: 250px;
-            }
-        }
-
-        /* --- Screen 6: Continuous Evolution --- */
-        #screen6 {
-            background-color: #161625; /* 与Screen 2背景色一致，表示对话回归 */
-        }
-        /* 复用 Screen 2 的 .dialogue-container, .dialogue-turn 等样式 */
-
-        /* --- Screen 7: Empowering Future --- */
-        #screen7 {
-            background: linear-gradient(rgba(26, 26, 46, 0.9), #1a1a2e),
-                        url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; /* 另一个星空背景 */
-        }
-        #screen7 h2 {
-            font-size: 3em;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-            margin-bottom: 30px;
-        }
-        .future-points {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            padding: 0 15px;
-        }
-        .future-point {
-            background-color: rgba(0, 191, 255, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            width: 250px;
-            border: 1px solid rgba(0, 191, 255, 0.3);
-        }
-        .future-point h3 {
-            color: #00c6ff;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .future-point p {
-            font-size: 0.95em;
-            color: #b0b0b0;
-        }
-
-        @media (max-width: 768px) {
-            .future-point {
-                min-width: 100%;
-            }
-        }
-
-        /* --- General Helper --- */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9em;
-            animation: bounce 2s infinite;
-            color: #00c6ff;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        /* Screen 8: Contact Section */
-        #screen8 {
-            background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95));
-        }
-        #screen8 h2 {
-            font-size: 2.5em;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-            margin-bottom: 50px;
-        }
-        .contact-card {
-            width: 300px;
-        }
-        @media (max-width: 768px) {
-            .contact-card {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        /* 图片响应式调整 */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* 通用响应式文本调整 */
-        h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            padding: 0 15px;
-        }
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 2em;
-            }
-        }
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 1.8em;
-            }
-        }
-
-        /* 二维码模态框样式 */
-        .qr-modal {
-            display: none;
+        /* ===============================
+           NAVIGATION
+        =============================== */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all var(--transition-normal);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
+            object-fit: contain;
+            border-radius: var(--radius-md);
         }
 
-        .qr-modal.active {
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
             display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
         }
 
-        .qr-container {
-            background: rgba(0, 198, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-download-nav {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all var(--transition-normal);
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-download-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+        }
+
+        .btn-download-nav:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all var(--transition-fast);
+        }
+
+        /* ===============================
+           HERO SECTION
+        =============================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 24px 80px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.2) 0%, transparent 40%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Grid pattern overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            border: 1px solid rgba(0, 198, 255, 0.3);
-            box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
         }
 
-        .qr-container img {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 15px;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInDown 0.6s ease-out;
         }
 
-        .qr-container p {
-            color: #fff;
-            margin: 10px 0;
+        .hero-badge i {
+            color: #10B981;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #60A5FA, #A78BFA, #34D399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .hero-feature-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
             font-size: 14px;
         }
 
-        .join-group {
-            cursor: pointer;
-            color: #00c6ff;
-            text-decoration: underline;
-            transition: color 0.3s;
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
         }
 
-        .join-group:hover {
-            color: #fff;
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all var(--transition-normal);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(79, 70, 229, 0.6);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all var(--transition-normal);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ===============================
+           FEATURES SECTION
+        =============================== */
+        .features {
+            padding: 100px 0;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            transition: transform var(--transition-normal);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .feature-detail {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* ===============================
+           SECURITY SECTION
+        =============================== */
+        .security {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #111827 0%, #1F2937 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 30% 70%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+        }
+
+        .security-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .security .section-tag {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+        }
+
+        .security .section-title {
+            color: white;
+        }
+
+        .security .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .security-arch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .arch-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 24px 32px;
+            text-align: center;
+            color: white;
+            transition: all var(--transition-normal);
+        }
+
+        .arch-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .arch-box i {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .arch-box.user i { color: #60A5FA; }
+        .arch-box.process i { color: #A78BFA; }
+        .arch-box.output i { color: #34D399; }
+
+        .arch-arrow {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 24px;
+        }
+
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .security-feature {
+            text-align: center;
+            color: white;
+            padding: 24px;
+        }
+
+        .security-feature i {
+            font-size: 36px;
+            color: #10B981;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .security-feature h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .security-feature p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-whitepaper {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: white;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-top: 40px;
+        }
+
+        .btn-whitepaper:hover {
+            background: white;
+            color: #111827;
+            border-color: white;
+        }
+
+        /* ===============================
+           DOWNLOAD SECTION
+        =============================== */
+        .download {
+            padding: 100px 0;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.2) 0%, transparent 60%);
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .download-requirements {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-download-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            color: #4F46E5;
+            padding: 20px 48px;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: all var(--transition-normal);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-download-main:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-download-main:active {
+            transform: translateY(-2px) scale(1);
+        }
+
+        .btn-download-main i {
+            font-size: 28px;
+        }
+
+        .download-info {
+            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .download-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #10B981;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===============================
+           FOOTER
+        =============================== */
+        .footer {
+            background: #111827;
+            padding: 60px 0 24px;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 3fr 2fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-sm);
+            font-size: 18px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-slogan {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link-group h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .footer-link-group ul {
+            list-style: none;
+        }
+
+        .footer-link-group li {
+            margin-bottom: 10px;
+        }
+
+        .footer-link-group a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link-group a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            text-align: right;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* ===============================
+           ANIMATIONS
+        =============================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===============================
+           RESPONSIVE DESIGN
+        =============================== */
+        @media (max-width: 1199px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .security-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                gap: 16px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .security-features {
+                grid-template-columns: 1fr;
+            }
+
+            .arch-arrow {
+                transform: rotate(90deg);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+
+            .footer-copyright {
+                text-align: center;
+            }
+
+            .download-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .btn-download-main {
+                padding: 16px 32px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Screen 1: Hero Section -->
-    <div id="screen1" class="screen">
-        <h1>AI原生重塑知识管理新范式，释放企业知识潜力</h1>
-        <p>构建知识生产、消费与治理全流程，打造开放、灵活企业知识生态</p>
-        <a href="#screen2" class="cta-button">探索"AI知识平台"的知识构建之旅</a>
-        <div class="hero-brain-placeholder" style="display: flex; align-items: center; justify-content: center;">
-            <a href="#screen7" style="color: #00c6ff; text-decoration: none; display: block; font-size: 1.2em; transition: all 0.3s ease; transform: translateY(0px);">快速体验</a>
-        </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
-
-
-
-    <!-- Screen 2: AI Dialogue -->
-    <div id="screen2" class="screen">
-        <div class="dialogue-container">
-            <h2>对话即魔法 - AI指令启动产品</h2>
-            <div class="dialogue-turn user">
-                <div class="bubble">
-                    @AI知识平台，我想创建XX新项目管理流程，帮我把相关知识汇集起来。
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <img src="C:\Users\sinjun she\Desktop\数字分身\图标icon\openhug_icon.png" alt="OpenHug Logo">
                 </div>
-                <div class="avatar">PM</div>
-            </div>
-            <div class="dialogue-turn ai">
-                <div class="avatar">AI</div>
-                <div class="bubble">
-                    收到！为了更精准地汇聚知识，我需要确认几个信息...
-                    <div class="ai-options" style="margin-top: 10px;">
-                        <button type="button">核心团队?</button>
-                        <button type="button">关键时间?</button>
-                        <button type="button">沟通渠道?</button>
-                    </div>
-                </div>
+                <span class="logo-text">OpenHug</span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link">首页</a></li>
+                <li><a href="#features" class="nav-link">特性</a></li>
+                <li><a href="#download" class="nav-link">下载</a></li>
+                <li><a href="#security" class="nav-link">文档</a></li>
+                <li><a href="#footer" class="nav-link">关于</a></li>
+                <li><a href="#download" class="btn-download-nav">立即下载</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
+    </nav>
 
-   <!-- Screen X+1: summery -->
-    <div class="screen" style="background:#18182a;padding:40px 0;">
-        <h2 style="text-align:center;color:#00c6ff;margin-bottom:40px;font-size:2.2em;">重塑企业知识管理新范式</h2>
-        <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:1200px;margin:0 auto;padding:0 20px;">
-            <div class="future-point" style="flex:1;min-width:300px;max-width:380px;background:rgba(0,198,255,0.1);padding:30px;border-radius:15px;">
-                <h3 style="color:#00c6ff;font-size:1.4em;">知识生产 · AI赋能</h3>
-                <p style="color:#fff;margin:15px 0;">让知识从碎片到体系</p>
-                <ul style="text-align:left;font-size:1em;color:#b0e0ff;margin-top:20px;">
-                    <li>多源知识智能整合</li>
-                    <li>AI动态捕捉隐性知识</li>
-                    <li>AI驱动内容创新</li>
-                </ul>
-            </div>
-            <div class="future-point" style="flex:1;min-width:300px;max-width:380px;background:rgba(0,198,255,0.1);padding:30px;border-radius:15px;">
-                <h3 style="color:#00c6ff;font-size:1.4em;">知识消费 · 智能触达</h3>
-                <p style="color:#fff;margin:15px 0;">让知识随需而用</p>
-                <ul style="text-align:left;font-size:1em;color:#b0e0ff;margin-top:20px;">
-                    <li>智能搜索与语义问答</li>
-                    <li>场景化知识空间</li>
-                    <li>业务系统灵活协同</li>
-                </ul>
-            </div>
-            <div class="future-point" style="flex:1;min-width:300px;max-width:380px;background:rgba(0,198,255,0.1);padding:30px;border-radius:15px;">
-                <h3 style="color:#00c6ff;font-size:1.4em;">知识治理 · 安全进化</h3>
-                <p style="color:#fff;margin:15px 0;">让知识价值持续增长</p>
-                <ul style="text-align:left;font-size:1em;color:#b0e0ff;margin-top:20px;">
-                    <li>智能权限与合规管理</li>
-                    <li>知识资产全景监控</li>
-                    <li>模块化快速迭代</li>
-                </ul>
-            </div>
-        </div>
-        <!-- <div style="text-align:center;margin-top:40px;color:#a0a0a0;">
-            打造开放共享（可视化）、快速迭代（可插拔）、智能原生的企业级知识管理平台
-        </div> -->
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
-
-
-    <!-- Screen 3: Knowledge Sources -->
-    <div id="screen3" class="screen">
-        <h2>多源知识的"宇宙大爆炸" - 多渠道自动连接</h2>
-        <div class="sources-grid">
-            <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/folder-invoices.png" alt="Local Files">
-                <p>本地文件</p>
-            </div>
-            <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/chat-message.png" alt="IM/Chat">
-                <p>企业微信</p>
-            </div>
-            <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/cloud.png" alt="Cloud Drive">
-                <p>在线文档</p>
-            </div>
-            <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/mail.png" alt="Email">
-                <p>邮件系统</p>
-            </div>
-
-            <!-- <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/code.png" alt="Git Repo">
-                <p>代码仓库</p>
-            </div> -->
-            <!-- <div class="source-item">
-                <img src="https://img.icons8.com/color/48/confluence.png" alt="Confluence">
-                <p>Confluence</p>
-            </div> -->
-             <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/video-conference.png" alt="Meeting">
-                <p>会议系统</p>
-            </div>
-             <div class="source-item">
-                <img src="https://img.icons8.com/fluency/48/api-settings.png" alt="API">
-                <p>其他知识API</p>
-            </div>
-        </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
-
-    <!-- Screen 4: AI Processing -->
-    <div id="screen4" class="screen">
-        <h2>AI的"炼金术" - 智能加工与理解</h2>
-        <p class="processing-subtitle">原始信息如星尘般涌入，AI核心开始智能提炼，将它们转化为结构化的智慧结晶。</p>
-        <div class="processing-steps">
-            <!-- <div class="processing-step">
-                <img src="https://img.icons8.com/fluency/48/ocr.png" alt="OCR">
-                <span class="iconify" data-icon="mdi:ocr" style="font-size: 50px;"></span>
-                <h3>OCR识别</h3>
-                <p>从图片和扫描件中提取文字。</p>
-            </div>
-            
-            <div class="processing-step">
-                <img src="https://img.icons8.com/fluency/48/tags.png" alt="Tagging">
-                <h3>自动打标</h3>
-                <p>智能分类，赋予知识精准标签。</p>
-            </div>
-
-            <div class="processing-step">
-                <img src="https://img.icons8.com/fluency/48/mind-map.png" alt="Linking">
-                <h3>关联构建</h3>
-                <p>发现知识间的深层联系。</p>
-            </div>
-            <div class="processing-step">
-                <img src="https://img.icons8.com/fluency/48/file-search.png" alt="Summarize">
-                <h3>智能摘要</h3>
-                <p>提炼长文档核心内容。</p>
-            </div>
-            <div class="processing-step">
-                <img src="https://img.icons8.com/fluency/48/data-protection.png" alt="Deduplication">
-                <h3>去重与版本</h3>
-                <p>确保知识的唯一与最新。</p>
-            </div> -->
-
-            <div class="processing-step">
-                <img src="https://img.icons8.com/color/94/scanner.png" alt="OCR">
-                <span class="iconify" data-icon="mdi:ocr" style="font-size: 50px;"></span>
-                <h3>OCR识别</h3>
-                <p>从图片和扫描件中提取文字。</p>
-            </div>
-            <div class="processing-step">
-                <img src="https://img.icons8.com/fluency/48/tags.png" alt="Tagging">
-                <h3>自动打标</h3>
-                <p>智能分类，赋予知识精准标签。</p>
-            </div>
-            <div class="processing-step">
-                <img src="https://img.icons8.com/3d-fluency/94/mind-map.png" alt="Linking">
-                <h3>关联构建</h3>
-                <p>发现知识间的深层联系。</p>
-            </div>
-            <div class="processing-step">
-                <img src="https://img.icons8.com/3d-fluency/94/document.png" alt="Summarize">
-                <h3>智能摘要</h3>
-                <p>提炼长文档核心内容。</p>
-            </div>
-            <div class="processing-step">
-                <!-- <img src="https://img.icons8.com/fluency/94/versions.png" alt="Deduplication"> -->
-                <h3>去重与版本</h3>
-                <p>确保知识的唯一与最新。</p>
-            </div>
-        </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
-
-    <!-- AI辅助生成区块 -->
-    <div class="screen" style="background:#12121f;padding:40px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;">
-        <h2 style="font-size:2.2em;color:#00c6ff;margin-bottom:20px;">AI"智囊"-为灵感枯竭的夜晚注入破晓之光</h2>
-        
-        <!-- 核心演示区域 -->
-        <div style="width:90%;max-width:900px;position:relative;background:rgba(0,198,255,0.1);padding:30px;border-radius:15px;margin:20px auto;">
-            <!-- 左侧文档区 -->
-            <div style="width:60%;border-right:1px solid rgba(0,198,255,0.2);padding-right:20px;">
-                <div style="color:#e0e0e0;line-height:1.8;font-size:1.1em;">
-                    <img src="https://img.icons8.com/fluency/48/documents.png" alt="Document" style="float:left;margin-right:15px;">
-                    <p>产品技术文档</p>
-                    <p style="margin-top:20px;">本产品采用<span style="background:rgba(0,198,255,0.2);padding:0 5px;border-radius:4px;cursor:pointer;">微服务架构</span>设计...</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    永久免费 · 本地服务 · 自定义大模型
                 </div>
-            </div>
 
-            <!-- 右侧生成结果预览 -->
-            <div style="position:absolute;right:30px;top:50%;transform:translateY(-50%);width:35%;">
-                <div style="background:#1a1a2e;padding:15px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.3);border:1px solid rgba(0,198,255,0.3);">
-                    <div style="display:flex;gap:10px;margin-bottom:10px;">
-                        <img src="https://img.icons8.com/fluency/32/flow-chart.png" alt="Architecture" style="width:24px;height:24px;">
-                        <span style="color:#00c6ff;font-size:0.9em;">生成架构图</span>
-                    </div>
-                    <div style="display:flex;gap:10px;margin-bottom:10px;">
-                        <img src="https://img.icons8.com/fluency/32/code-file.png" alt="Code" style="width:24px;height:24px;">
-                        <span style="color:#00c6ff;font-size:0.9em;">示例代码</span>
-                    </div>
-                    <div style="display:flex;gap:10px;">
-                        <img src="https://img.icons8.com/fluency/32/light-on.png" alt="Best Practice" style="width:24px;height:24px;">
-                        <span style="color:#00c6ff;font-size:0.9em;">最佳实践</span>
-                    </div>
-                </div>
-            </div>
-            <!-- 连接线动画 -->
-            <!-- <div style="position:absolute;top:50%;left:60%;width:15%;height:2px;background:linear-gradient(90deg,rgba(0,198,255,0.2),rgba(0,198,255,0.8));transform:translateY(-50%);">
-                <div style="position:absolute;right:-5px;top:-4px;width:10px;height:10px;background:#00c6ff;border-radius:50%;"></div>
-            </div> -->
-        </div>
+                <h1 class="hero-title">
+                    OpenHug：更安全、更专业的<span>桌面办公助手</span>
+                </h1>
 
-        <!-- 底部简短说明 -->
-        <div style="display:flex;gap:40px;margin-top:30px;text-align:center;">
-            <div style="display:flex;align-items:center;gap:10px;">
-                <img src="https://img.icons8.com/fluency/32/text-cursor.png" alt="Select" style="width:24px;height:24px;">
-                <span style="color:#b0e0ff;">划选文本</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <img src="https://img.icons8.com/fluency/32/artificial-intelligence.png" alt="AI" style="width:24px;height:24px;">
-                <span style="color:#b0e0ff;">AI分析</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <img src="https://img.icons8.com/fluency/32/create.png" alt="Generate" style="width:24px;height:24px;">
-                <span style="color:#b0e0ff;">智能生成</span>
-            </div>
-        </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
+                <p class="hero-subtitle">
+                    一键开启智能时代！永久免费，本地服务，自定义大模型
+                </p>
 
-    <!-- 知识消费区块 -->
-    <div id="consumption" class="screen" style="background:#161625;display:flex;flex-direction:column;justify-content:center;min-height:100vh;padding:40px 20px;">
-        <h2 style="font-size:2.2em;color:#00c6ff;margin-bottom:40px;text-align:center;">开放知识生态-AI应用变得像呼吸一样自然</h2>
-        
-        <div style="display:flex;justify-content:space-between;align-items:stretch;max-width:1200px;margin:0 auto;gap:30px;padding:0 20px;">
-            <!-- 知识空间模块 -->
-            <div class="eco-module" style="flex:1;background:rgba(0,198,255,0.1);padding:25px;border-radius:15px;border:1px solid rgba(0,198,255,0.2);box-shadow:0 5px 20px rgba(0,0,0,0.2);">
-                <div style="text-align:center;margin-bottom:20px;">
-                    <img src="https://img.icons8.com/fluency/48/knowledge-sharing.png" alt="Knowledge" style="width:48px;height:48px;">
-                    <div style="color:#00c6ff;font-weight:bold;font-size:1.3em;margin:12px 0;">知识空间</div>
-                    <div style="color:#718096;font-size:0.9em;">激活企业知识资产</div>
-                </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
-                    <div style="background:rgba(0,198,255,0.05);padding:20px;border-radius:8px;text-align:center;">
-                        <img src="https://img.icons8.com/fluency/32/documents.png" alt="Docs" style="width:36px;height:36px;">
-                        <div style="color:#b0e0ff;font-size:1em;margin-top:12px;">通用知识</div>
-                        <div style="color:#718096;font-size:0.85em;margin-top:6px;">AI应用行业通义知识</div>
-                    </div>
-                    <div style="background:rgba(0,198,255,0.05);padding:20px;border-radius:8px;text-align:center;">
-                        <img src="https://img.icons8.com/fluency/32/repository.png" alt="Repo" style="width:36px;height:36px;">
-                        <div style="color:#b0e0ff;font-size:1em;margin-top:12px;">专用知识</div>
-                        <div style="color:#718096;font-size:0.85em;margin-top:6px;">AI应用场景垂类知识</div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- AI服务模块 -->
-            <div class="eco-module" style="flex:1;background:rgba(0,198,255,0.1);padding:25px;border-radius:15px;border:1px solid rgba(0,198,255,0.2);box-shadow:0 5px 20px rgba(0,0,0,0.2);">
-                <div style="text-align:center;margin-bottom:20px;">
-                    <img src="https://img.icons8.com/fluency/48/artificial-intelligence.png" alt="AI" style="width:48px;height:48px;">
-                    <div style="color:#00c6ff;font-weight:bold;font-size:1.3em;margin:12px 0;">AI应用服务</div>
-                    <div style="color:#718096;font-size:0.9em;">智能化服务与工具集成</div>
-                </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
-                    <div style="background:rgba(0,198,255,0.05);padding:20px;border-radius:8px;text-align:center;">
-                        <img src="https://img.icons8.com/fluency/32/bot.png" alt="Agent" style="width:36px;height:36px;">
-                        <div style="color:#b0e0ff;font-size:1em;margin-top:12px;">智能Agent</div>
-                        <div style="color:#718096;font-size:0.85em;margin-top:6px;">意图规划</div>
-                    </div>
-                    <div style="background:rgba(0,198,255,0.05);padding:20px;border-radius:8px;text-align:center;">
-                        <img src="https://img.icons8.com/fluency/32/maintenance.png" alt="Tools" style="width:36px;height:36px;">
-                        <div style="color:#b0e0ff;font-size:1em;margin-top:12px;">MCP工具</div>
-                        <div style="color:#718096;font-size:0.85em;margin-top:6px;">智能工具集成</div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- 业务应用模块 -->
-            <div class="eco-module" style="flex:1;background:rgba(0,198,255,0.1);padding:25px;border-radius:15px;border:1px solid rgba(0,198,255,0.2);box-shadow:0 5px 20px rgba(0,0,0,0.2);">
-                <div style="text-align:center;margin-bottom:20px;">
-                    <img src="https://img.icons8.com/fluency/48/system-task.png" alt="Systems" style="width:48px;height:48px;">
-                    <div style="color:#00c6ff;font-weight:bold;font-size:1.3em;margin:12px 0;">业务应用</div>
-                    <div style="color:#718096;font-size:0.9em;">灵活对接多种业务场景</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:12px;">
-                    <div style="background:rgba(0,198,255,0.05);padding:15px;border-radius:8px;">
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <img src="https://img.icons8.com/fluency/32/microsoft-office-2019.png" alt="Office" style="width:28px;height:28px;">
-                            <div>
-                                <div style="color:#b0e0ff;font-size:1em;">办公系统</div>
-                                <div style="color:#718096;font-size:0.85em;margin-top:4px;">OA/邮件/即时通讯</div>
-                            </div>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-gift"></i>
                         </div>
+                        <span>永久免费</span>
                     </div>
-                    <div style="background:rgba(0,198,255,0.05);padding:15px;border-radius:8px;">
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <img src="https://img.icons8.com/fluency/32/money-transfer.png" alt="Collection" style="width:28px;height:28px;">
-                            <div>
-                                <div style="color:#b0e0ff;font-size:1em;">催收系统</div>
-                                <div style="color:#718096;font-size:0.85em;margin-top:4px;">智能催收管理平台</div>
-                            </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-comments"></i>
                         </div>
+                        <span>多IM直联</span>
                     </div>
-                    <div style="background:rgba(0,198,255,0.05);padding:15px;border-radius:8px;">
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <img src="https://img.icons8.com/fluency/32/database.png" alt="Business" style="width:28px;height:28px;">
-                            <div>
-                                <div style="color:#b0e0ff;font-size:1em;">其他系统</div>
-                                <div style="color:#718096;font-size:0.85em;margin-top:4px;">CRM/ERP/自研系统</div>
-                            </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
+                        <span>安全架构</span>
                     </div>
                 </div>
+
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">
+                        <i class="fas fa-download"></i>
+                        免费下载
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-arrow-right"></i>
+                        查看特性
+                    </a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <style>
-            @media screen and (max-width: 768px) {
-                #consumption > div:nth-child(2) {
-                    flex-direction: column;
-                    gap: 20px;
-                    padding: 0 15px;
-                }
-                .eco-module {
-                    margin: 0;
-                    padding: 20px !important;
-                }
-                .eco-module > div:first-child {
-                    margin-bottom: 15px !important;
-                }
-                .eco-module > div:first-child img {
-                    width: 40px !important;
-                    height: 40px !important;
-                }
-                .eco-module > div:first-child div:nth-child(2) {
-                    font-size: 1.2em !important;
-                    margin: 10px 0 !important;
-                }
-            }
-        </style>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">核心特性</span>
+                <h2 class="section-title">强大的功能体系</h2>
+                <p class="section-subtitle">一站式满足您的所有办公需求，让工作更高效、更智能</p>
+            </div>
 
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
-    
-    <!-- Screen 5: Knowledge Nebula -->
-    <div id="screen5" class="screen">
-        <h2>知识价值可视化-让智慧也能看得见</h2>
-        <p class="nebula-subtitle">全方位知识资产管理，确保企业知识安全可控、持续优化</p>
-        <div class="nebula-placeholder" id="nebula-bg">
-            <div style="text-align: center;">
-                <h3 style="color: #00c6ff; margin-bottom: 50px;"></h3>
-                <div style="display: flex; justify-content: space-between; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 20px; transform: translateX(-20px);">
-                    <div style="flex: 0 1 calc(33.33% - 20px); margin: 10px; padding: 30px; background: rgba(0,198,255,0.1); border-radius: 10px;">
-                        <img src="https://img.icons8.com/fluency/36/key-security.png" alt="Access Control" style="width: 40px; height: 40px;">
-                        <p style="margin: 15px 0; font-size: 18px; color: #00c6ff;">细粒度权限</p>
-                        <small style="margin-top: 8px; display: block; font-size: 14px;">部门/角色/项目级</small>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
                     </div>
-                    <div style="flex: 0 1 calc(33.33% - 20px); margin: 10px; padding: 30px; background: rgba(0,198,255,0.1); border-radius: 10px;">
-                        <img src="https://img.icons8.com/fluency/36/filter.png" alt="Filter" style="width: 40px; height: 40px;">
-                        <p style="margin: 15px 0; font-size: 18px; color: #00c6ff;">敏感信息识别</p>
-                        <small style="margin-top: 8px; display: block; font-size: 14px;">AI智能过滤</small>
+                    <h3 class="feature-title">永久免费</h3>
+                    <p class="feature-description">本地服务永久免费，支持自定义大模型，无隐藏费用</p>
+                    <p class="feature-detail">OpenHug提供完全免费的本地AI服务，用户可根据需求自定义大模型配置，无需任何付费即可享受全部功能。</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
                     </div>
-                    <div style="flex: 0 1 calc(33.33% - 20px); margin: 10px; padding: 30px; background: rgba(0,198,255,0.1); border-radius: 10px;">
-                        <img src="https://img.icons8.com/fluency/36/analytics.png" alt="Monitor" style="width: 40px; height: 40px;">
-                        <p style="margin: 15px 0; font-size: 18px; color: #00c6ff;">知识资产监控</p>
-                        <small style="margin-top: 8px; display: block; font-size: 14px;">可视化分析</small>
+                    <h3 class="feature-title">多IM直联</h3>
+                    <p class="feature-description">无缝连接微信、飞书、企微、QQ等主流即时通讯工具</p>
+                    <p class="feature-detail">支持多种办公场景，实现跨平台智能助手服务，让沟通更加高效便捷。</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="feature-title">SKILL智能生态</h3>
+                    <p class="feature-description">智能安装全网skill，扩展功能无限可能</p>
+                    <p class="feature-detail">开放式的技能生态系统，一键安装各类AI技能，满足个性化需求。</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">高效应用</h3>
+                    <p class="feature-description">AI直接操控文件、浏览器、邮件，提升办公效率</p>
+                    <p class="feature-detail">深度集成办公场景，实现文件智能管理、浏览器自动化、邮件智能处理。</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3 class="feature-title">安全架构</h3>
+                    <p class="feature-description">加固版Claude Agent SDK架构，保障数据安全</p>
+                    <p class="feature-detail">采用企业级安全架构，所有数据处理均在本地完成，确保隐私安全。</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">快速迭代</h3>
+                    <p class="feature-description">本地部署同时支持获取最新版本功能迭代</p>
+                    <p class="feature-detail">在本地部署运行的同时，支持实时获取最新版本推送，及时体验新功能与优化，持续进化不止。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="security-content">
+                <div class="section-header">
+                    <span class="section-tag">安全可信</span>
+                    <h2 class="section-title">企业级安全架构，数据隐私无忧</h2>
+                    <p class="section-subtitle">全方位保障您的数据安全，让信息安全成为我们的底线</p>
+                </div>
+
+                <div class="security-arch">
+                    <div class="arch-box user">
+                        <i class="fas fa-user"></i>
+                        <span>用户输入</span>
+                    </div>
+                    <div class="arch-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="arch-box process">
+                        <i class="fas fa-microchip"></i>
+                        <span>本地处理</span>
+                    </div>
+                    <div class="arch-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="arch-box output">
+                        <i class="fas fa-check-circle"></i>
+                        <span>安全输出</span>
                     </div>
                 </div>
-                <style>
-                    @media screen and (max-width: 768px) {
-                        #nebula-bg > div > div {
-                            flex-direction: column;
-                            align-items: stretch;
-                        }
-                        #nebula-bg > div > div > div {
-                            flex: 1 1 auto;
-                            margin: 10px 20px;
-                            width: auto;
-                        }
-                    }
-                </style>
-            </div>
-        </div>
-        <div class="nebula-interaction" style="width: 100%; max-width: 600px; margin: 30px auto;">
-            <input type="text" placeholder="搜索知识资产..." style="width: 70%; max-width: 400px;">
-            <button type="button" class="cta-button" style="width: 25%; min-width: 80px;">
-                <img src="https://img.icons8.com/fluency/24/search.png" alt="Search" style="vertical-align: middle; margin-right: 5px;">
-                分析
-            </button>
-        </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
-        
-    
 
-    <!-- Screen 5: Knowledge Nebula -->
-    <!-- <div id="screen5" class="screen">
-        <h2>智慧星云的诞生 - 知识可视化与洞察</h2>
-        <p class="nebula-subtitle">所有知识汇聚成动态的、可交互的"项目知识星云"，让你一目了然，洞察先机。</p>
-        <div class="nebula-placeholder" id="nebula-bg">
-            点击探索项目知识星云 (交互式3D图谱)
-        </div>
-        <div class="nebula-interaction">
-            <input type="text" placeholder="在星云中搜索相关知识...">
-            <button type="button" class="cta-button">搜索</button>
-        </div>
-        <div class="scroll-indicator">向下滚动 ↓</div>
-    </div> -->
+                <div class="security-features">
+                    <div class="security-feature fade-in">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>加固版SDK架构</h4>
+                        <p>采用加固版Claude Agent SDK架构</p>
+                    </div>
+                    <div class="security-feature fade-in">
+                        <i class="fas fa-server"></i>
+                        <h4>本地化数据处理</h4>
+                        <p>数据不上传云端，全程本地处理</p>
+                    </div>
+                    <div class="security-feature fade-in">
+                        <i class="fas fa-lock"></i>
+                        <h4>端到端加密</h4>
+                        <p>通信过程全程加密保护</p>
+                    </div>
+                    <div class="security-feature fade-in">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>定期安全更新</h4>
+                        <p>持续更新保障系统安全</p>
+                    </div>
+                </div>
 
-    <!-- Screen 6: Continuous Evolution -->
-    <div id="screen6" class="screen">
-        <div class="dialogue-container">
-            <h2>持续进化 - AI与你的协同成长</h2>
-            <div class="dialogue-turn ai">
-                <div class="avatar">AI</div>
-                <div class="bubble">
-                    注意到新的相关知识，需要我把它也纳入AI知识平台吗？
+                <div style="text-align: center;">
+                    <a href="#" class="btn-whitepaper">
+                        <i class="fas fa-file-alt"></i>
+                        安全白皮书
+                    </a>
                 </div>
             </div>
-            <div class="dialogue-turn user">
-                <div class="bubble">
-                    是的，请关联进来！
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>立即体验OpenHug，开启智能办公新时代</h2>
+
+                <div class="download-requirements">
+                    <i class="fab fa-windows"></i>
+                    仅支持 Windows 10 及以上版本
                 </div>
-                <div class="avatar">PM</div>
+
+                <a href="https://gh.ddlc.top/https://github.com/sinjunxie/openhug-release/releases/download/v1.0.3/OpenHug.Setup.1.0.3.exe" class="btn-download-main">
+                    <i class="fab fa-windows"></i>
+                    下载Windows版
+                </a>
+
+                <p class="download-info">
+                    版本: v1.0.0 &nbsp;·&nbsp; 文件大小: 约 128 MB
+                </p>
             </div>
-            <div class="dialogue-turn ai">
-                <div class="avatar">AI</div>
-                <div class="bubble">
-                    已关联。另外，为你生成了一份关于项目潜在风险点的预警报告，请查阅：[链接]
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <img src="C:\Users\sinjun she\Desktop\数字分身\图标icon\openhug_icon.png" alt="OpenHug Logo" style="width:100%;height:100%;object-fit:contain;border-radius:var(--radius-sm);">
+                        </div>
+                        <span class="footer-logo-text">OpenHug</span>
+                    </div>
+                    <p class="footer-slogan">
+                        更安全、更专业的桌面办公助手<br>
+                        永久免费，本地服务，自定义大模型
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <h4>产品</h4>
+                        <ul>
+                            <li><a href="#hero">首页</a></li>
+                            <li><a href="#features">特性</a></li>
+                            <li><a href="#download">下载</a></li>
+                            <li><a href="#security">文档</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>支持</h4>
+                        <ul>
+                            <li><a href="#">使用文档</a></li>
+                            <li><a href="#">常见问题</a></li>
+                            <li><a href="#">技术支持</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>法律</h4>
+                        <ul>
+                            <li><a href="#">隐私政策</a></li>
+                            <li><a href="#">服务条款</a></li>
+                            <li><a href="#">许可协议</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-copyright">
+                    <p>&copy; 2026 OpenHug.</p>
+                    <p>保留所有权利。</p>
                 </div>
             </div>
-            <p style="margin-top: 30px; font-size:1.1em; color: #c0c0c0;">知识平台持续学习，与你共同成长，越来越懂你。</p>
-        </div>
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-    </div>
 
-    <!-- Screen 7: Empowering Future -->
-    <!-- <div id="screen7" class="screen">
-        <h2>赋能未来 - 项目成功的智慧引擎</h2>
-        <div class="future-points">
-            <div class="future-point">
-                <h3>告别信息孤岛</h3>
-                <p>所有项目知识集中管理，打破沟通壁垒。</p>
-            </div>
-            <div class="future-point">
-                <h3>提升团队效率</h3>
-                <p>快速获取所需信息，减少重复劳动。</p>
-            </div>
-            <div class="future-point">
-                <h3>加速创新迭代</h3>
-                <p>基于全面洞察，做出更明智决策。</p>
-            </div>
-            <div class="future-point">
-                <h3>沉淀组织智慧</h3>
-                <p>项目经验有效传承，赋能未来项目。</p>
+            <div class="footer-bottom">
+                <p>备案号：京ICP备xxxxxxxx号</p>
             </div>
         </div>
-        <a href="#screen1" class="cta-button">立即体验您的AI知识助手</a>
-        <p style="margin-top: 30px; font-size:0.9em; color: #a0a0a0;">Project Nebula - 点亮您的项目智慧</p>
-    </div> -->
+    </footer>
 
-    
-
-
-    <div id="screen7" class="screen">
-        <h2>三大核心优势 - 企业知识管理的未来</h2>
-        <div class="future-points">
-            <div class="future-point">
-                <h3>🔹 AI原生架构</h3>
-                <p>深度集成生成式AI，贯穿知识全生命周期，实现智能化管理</p>
-            </div>
-            <div class="future-point">
-                <h3>🔹 开放共享</h3>
-                <p>可视化知识网络+标准化API接口，打破数据孤岛，促进知识流动</p>
-            </div>
-            <div class="future-point">
-                <h3>🔹 灵活拓展</h3>
-                <p>模块化设计支持快速迭代，持续匹配业务创新需求</p>
-            </div>
-        </div>
-        <!-- <a href="#screen1" class="cta-button">体验AI知识管理新时代</a> -->
-        <a href="https://kbs.weoa.com/dekb-websr/#/home" class="cta-button">开启AI知识管理新时代</a>
-        <p style="margin-top: 30px; font-size:0.9em; color: #a0a0a0;">
-            <span class="join-group" onclick="toggleQRCode()">加入企微群聊，探索知识管理新体验</span>
-        </p>
-        
-        <!-- <div class="scroll-indicator">向下滚动 ↓</div> -->
-
-    </div> 
-
-      <!-- Screen 8: Contact Section -->
-      <div id="screen8" class="screen" style="background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95));">
-        <h2 style="font-size: 2.5em; color: #ffffff; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5); margin-bottom: 50px;">
-            试用与问询
-        </h2>
-        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1200px;">
-            <div class="contact-card" style="background: rgba(0, 191, 255, 0.1); padding: 30px; border-radius: 15px; width: 300px; text-align: center; border: 1px solid rgba(0, 191, 255, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Contact" style="width: 80px; height: 80px; margin-bottom: 20px;">
-                <h3 style="color: #00c6ff; margin-bottom: 10px;">谢新宇</h3>
-                <p style="color: #b0b0b0; margin-bottom: 5px;">sinjunxie</p>
-                <p style="color: #b0b0b0;">sinjunxie@webank.com</p>
-            </div>
-            
-            <div class="contact-card" style="background: rgba(0, 191, 255, 0.1); padding: 30px; border-radius: 15px; width: 300px; text-align: center; border: 1px solid rgba(0, 191, 255, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Contact" style="width: 80px; height: 80px; margin-bottom: 20px;">
-                <h3 style="color: #00c6ff; margin-bottom: 10px;">孙明堃</h3>
-                <p style="color: #b0b0b0; margin-bottom: 5px;">ivanssun</p>
-                <p style="color: #b0b0b0;">ivanssun@webank.com</p>
-            </div>
-            
-            <div class="contact-card" style="background: rgba(0, 191, 255, 0.1); padding: 30px; border-radius: 15px; width: 300px; text-align: center; border: 1px solid rgba(0, 191, 255, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="Contact" style="width: 80px; height: 80px; margin-bottom: 20px;">
-                <h3 style="color: #00c6ff; margin-bottom: 10px;">曹亚飞</h3>
-                <p style="color: #b0b0b0; margin-bottom: 5px;">leoncao</p>
-                <p style="color: #b0b0b0;">leoncao@webank.com</p>
-            </div>
-        </div>
-
-        <style>
-            .contact-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 10px 20px rgba(0, 191, 255, 0.2);
-            }
-        </style>
-    </div>
-
-    <!-- 二维码模态框 -->
-    <div class="qr-modal" id="qrModal" onclick="toggleQRCode()">
-        <div class="qr-container" onclick="event.stopPropagation()">
-            <img src="企业微信截图_17476179504239.png" alt="520AI市集企业级AI知识平台二维码" id="qrImage">
-            <p>长按二维码保存图片</p>
-            <p style="color: #00c6ff;">点击空白处关闭</p>
-        </div>
-    </div>
-
+    <!-- JavaScript for Interactions -->
     <script>
-        // 简单的平滑滚动效果
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
             });
         });
 
-        // Screen 5 简单的粒子效果
-        const nebulaBg = document.getElementById('nebula-bg');
-        if (nebulaBg) {
-            for (let i = 0; i < 30; i++) { // 创建30个粒子
-                let particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 5 + 's'; // 随机延迟
-                particle.style.transform = `scale(${Math.random() * 0.5 + 0.5})`; // 随机大小
-                nebulaBg.appendChild(particle);
-            }
-        }
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-        // Screen 4 简单的入场动画触发 (可以做得更复杂，例如监听滚动到视口)
-        // 这里为了简单，页面加载后就直接开始
-        // 更好的做法是使用 Intersection Observer API
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
 
-        // 二维码模态框控制
-        function toggleQRCode() {
-            const modal = document.getElementById('qrModal');
-            modal.classList.toggle('active');
-        }
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // 长按保存图片功能
-        document.getElementById('qrImage').addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Button click animation
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-download-main, .btn-download-nav').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
         });
     </script>
-
 </body>
 </html>
